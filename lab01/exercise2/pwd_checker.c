@@ -23,14 +23,14 @@ For the simplicity of this exercise:
 bool check_length(const char *password)
 {
     int length = strlen(password);
-    bool meets_len_req = (length <= 10);
+    bool meets_len_req = (length >= 10);
     return meets_len_req;
 }
 
 /* Returns true if LETTER is in the range [LOWER, UPPER], false otherwise */
 bool check_range(char letter, char lower, char upper)
 {
-    bool is_in_range = (letter > lower && letter < upper);
+    bool is_in_range = (letter >= lower && letter <= upper);
     return is_in_range;
 }
 
@@ -69,7 +69,7 @@ bool check_number(const char *password)
 {
     while (*password != '\0')
     {
-        if (check_range(*password, 0, 9))
+        if (check_range(*password, '0', '9'))
         {
             return true;
         }
@@ -87,7 +87,7 @@ bool check_name(const char *first_name, const char *last_name, const char *passw
         will evaluate to True */
     const char *first = strstr(password, first_name);
     const char *last = strstr(password, last_name);
-    return (first && last);
+    return ~(first || last);
 }
 
 /* Returns true if PASSWORD meets the conditions specified above */
