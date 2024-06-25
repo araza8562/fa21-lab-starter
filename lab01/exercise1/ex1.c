@@ -10,9 +10,10 @@ int num_occurrences(char *str, char letter)
     /* TODO: implement num_occurances */
 
     int count = 0;
-    while (*str++)
+    while (*str)
     {
         (*str == letter) ? count++ : (count = count);
+        str++;
     }
 
     return count;
@@ -24,5 +25,18 @@ All letters will be upper case. */
 void compute_nucleotide_occurrences(DNA_sequence *dna_seq)
 {
     /* TODO: implement compute_nucleotide_occurances */
-    return;
+    int A_count = 0;
+    int C_count = 0;
+    int G_count = 0;
+    int T_count = 0;
+
+    A_count = num_occurrences(dna_seq->sequence, 'A');
+    C_count = num_occurrences(dna_seq->sequence, 'C');
+    G_count = num_occurrences(dna_seq->sequence, 'G');
+    T_count = num_occurrences(dna_seq->sequence, 'T');
+
+    dna_seq->A_count = A_count;
+    dna_seq->C_count = C_count;
+    dna_seq->G_count = G_count;
+    dna_seq->T_count = T_count;
 }
