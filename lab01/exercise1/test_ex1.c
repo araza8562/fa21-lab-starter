@@ -3,7 +3,8 @@
 #include <string.h>
 #include "ex1.h"
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     printf("Running tests...\n\n");
     /************ Part 1 Test Cases ************/
     char *str = "hello world!";
@@ -15,6 +16,9 @@ int main(int argc, char **argv) {
     assert(num_z == 0);
 
     /* TODO: Think of a scenario that is not tested by the current test cases. Create one additional test case to test this scenario. */
+
+    int num_a = num_occurrences(str, 'a');
+    assert(num_a == 0);
 
     printf("Congrats! If you have made it to this line, your Part 1 Test cases are all passing!\n");
 
