@@ -1,14 +1,23 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic
+CFLAGS = -Wall -Wextra -pedantic -g
 
-all: main run clean
+TARGET = main
 
+all: build
 
-main: main.c other.c
-	$(CC) $(CFLAGS) -o main main.c other.c
+build: $(TARGET)
 
-run:
-	@-./main
+$(TARGET): main.o other.o
+	$(CC) $(CFLAGS) -o $(TARGET) main.o other.o
+
+main.o: main.c
+	$(CC) $(CFLAGS) -c main.c
+
+other.o: other.c
+	$(CC) $(CFLAGS) -c other.c
+
+run: build
+	./$(TARGET)
 
 clean:
-	rm -f main
+	rm -f $(TARGET) *.o
