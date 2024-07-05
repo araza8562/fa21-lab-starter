@@ -1,23 +1,15 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -g
+CC=gcc
+CFLAGS=
 
-TARGET = main
+all:   run 
+.PHONY: all
 
-all: build
 
-build: $(TARGET)
-
-$(TARGET): main.o other.o
-	$(CC) $(CFLAGS) -o $(TARGET) main.o other.o
-
-main.o: main.c
-	$(CC) $(CFLAGS) -c main.c
-
-other.o: other.c
-	$(CC) $(CFLAGS) -c other.c
+build: clean	
+	$(CC) $(CFLAGS)  main.c other.c -o main.exe
 
 run: build
-	./$(TARGET)
+	./main.exe
 
 clean:
-	rm -f $(TARGET) *.o
+	rm -rf ./*.exe
