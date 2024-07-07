@@ -77,7 +77,11 @@ main:
 # Think: why might having a1 be useful?
 f:
     # YOUR CODE GOES HERE!
-
+    addi a1, a0, 3
+    slli a1, a1, 2
+    la a2, output
+    add a1, a1, a2
+    lw a0, 0(a1)
     jr ra               # Always remember to jr ra after your function!
 
 print_int:

@@ -4,7 +4,7 @@
 .globl accumulatorfour
 .globl accumulatorfive
 
-#Accumulator:
+#Accumulator: 
 #Inputs: a0 contains a pointer to an array of nonzero integers, terminated with 0
 #Output: a0 should return the sum of the elements of the array
 #
